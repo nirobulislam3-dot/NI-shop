@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>পূজা স্টোর – কাপড় ও ইলেকট্রনিক্স</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#fbf8ff;--surface:#ffffff;--ink:#1d1b4b;--muted:#5d5a80;--gold:#f5a300;--red:#c81e3a;--line:#e3def2;--on-ink:#ffffff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12112b;--surface:#1c1b3d;--ink:#f2efff;--muted:#a9a6cf;--gold:#ffb81f;--red:#ff5a73;--line:#34326a;--on-ink:#12112b}}
+:root[data-theme="dark"]{--bg:#12112b;--surface:#1c1b3d;--ink:#f2efff;--muted:#a9a6cf;--gold:#ffb81f;--red:#ff5a73;--line:#34326a;--on-ink:#12112b}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Hind Siliguri','Noto Sans Bengali','Kalpurush',sans-serif;font-size:17px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:10px 18px}
+.logo{font-weight:700;font-size:22px}
+.logo span{color:var(--red)}
+.cartbtn{border:2px solid var(--ink);background:transparent;color:var(--ink);border-radius:999px;padding:6px 16px;font:inherit;font-weight:500;cursor:pointer}
+.cartbtn:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:340px}
+.half{padding:34px 22px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;text-decoration:none;color:#fff}
+.half h2{margin:0;font-size:clamp(30px,8vw,56px);line-height:1.1}
+.half p{margin:0;font-size:15px;opacity:.92}
+.cloth{background:repeating-linear-gradient(135deg,#c81e3a 0 14px,#a8142d 14px 16px,#f5a300 16px 18px,#c81e3a 18px 32px)}
+.elec{background:linear-gradient(#1d1b4b99,#1d1b4b99),repeating-linear-gradient(0deg,transparent 0 23px,#6b68c7 23px 24px),repeating-linear-gradient(90deg,#1d1b4b 0 23px,#6b68c7 23px 24px)}
+.half span{align-self:flex-start;background:var(--gold);color:#1d1b4b;font-weight:700;border-radius:999px;padding:3px 14px;font-size:14px}
+.sale{background:var(--gold);color:#1d1b4b;text-align:center;padding:10px 16px;font-weight:700}
+main{max-width:1000px;margin:0 auto;padding:28px 18px}
+h3{font-size:26px;margin:0 0 14px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.tab{border:2px solid var(--ink);background:transparent;color:var(--ink);padding:6px 18px;border-radius:999px;font:inherit;cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--on-ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.pic{font-size:64px;text-align:center;padding:22px 0;background:var(--line)}
+.card.c .pic{background:linear-gradient(135deg,#f9d4da,#fde7b4)}
+.info{padding:12px 14px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.tag{font-size:13px;color:var(--muted)}
+.name{font-weight:700}
+.price{font-size:20px;font-weight:700;color:var(--red);margin-top:auto}
+.old{font-size:14px;color:var(--muted);text-decoration:line-through;margin-left:6px;font-weight:400}
+.add{margin-top:8px;border:0;background:var(--ink);color:var(--on-ink);border-radius:10px;padding:9px;font:inherit;font-weight:500;cursor:pointer}
+.add:active{transform:scale(.97)}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:34px 0}
+.why div{border-left:4px solid var(--gold);padding:4px 14px}
+.why b{display:block}
+footer{background:#1d1b4b;color:#fff;padding:28px 18px calc(28px + env(safe-area-inset-bottom,0px));text-align:center}
+footer a{color:var(--gold)}
+#panel{position:fixed;inset:auto 0 0 0;max-height:70%;overflow:auto;background:var(--surface);border-top:3px solid var(--gold);padding:16px 18px calc(16px + env(safe-area-inset-bottom,0px));transform:translateY(110%);transition:transform .25s;z-index:20}
+#panel.open{transform:none}
+.row{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+.row button{border:0;background:none;color:var(--red);cursor:pointer;font:inherit}
+.total{font-weight:700;font-size:20px;margin:12px 0}
+.order{width:100%;border:0;border-radius:10px;background:var(--red);color:#fff;font:inherit;font-weight:700;padding:11px;cursor:pointer}
+@media (max-width:520px){.hero{grid-template-columns:1fr}.half{min-height:190px}}
+@media (prefers-reduced-motion:reduce){#panel{transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">পূজা <span>স্টোর</span></div>
+  <button class="cartbtn" id="cartbtn" aria-label="কার্ট খুলুন">কার্ট (<span id="cnt">০</span>)</button>
+</header>
+
+<section class="hero">
+  <a class="half cloth" href="#shop" data-go="cloth"><span>নতুন কালেকশন</span><h2>কাপড়</h2><p>শাড়ি, পাঞ্জাবি, থ্রি-পিস ও আরও অনেক কিছু</p></a>
+  <a class="half elec" href="#shop" data-go="elec"><span>গ্যারান্টি সহ</span><h2>ইলেকট্রনিক্স</h2><p>মোবাইল, হেডফোন, স্মার্টওয়াচ ও টিভি</p></a>
+</section>
+<div class="sale">পূজার অফার: ২,০০০ টাকার ওপরে কেনাকাটায় ফ্রি হোম ডেলিভারি</div>
+
+<main id="shop">
+  <h3>আমাদের পণ্য</h3>
+  <div class="tabs" role="group" aria-label="ক্যাটাগরি">
+    <button class="tab" data-f="all" aria-pressed="true">সব</button>
+    <button class="tab" data-f="cloth" aria-pressed="false">কাপড়</button>
+    <button class="tab" data-f="elec" aria-pressed="false">ইলেকট্রনিক্স</button>
+  </div>
+  <div class="grid" id="grid"></div>
+
+  <div class="why">
+    <div><b>আসল পণ্য</b>প্রতিটি ইলেকট্রনিক্স পণ্যে ওয়ারেন্টি</div>
+    <div><b>পছন্দ না হলে ফেরত</b>কাপড়ে ৭ দিনের মধ্যে বদলের সুযোগ</div>
+    <div><b>ক্যাশ অন ডেলিভারি</b>পণ্য হাতে পেয়ে টাকা দিন</div>
+  </div>
+</main>
+
+<footer>
+  <p><b>পূজা স্টোর</b><br>দোকান নম্বর ১২, মেইন রোড, আপনার শহর</p>
+  <p>ফোন: <a href="tel:+8801700000000">০১৭০০-০০০০০০</a> · খোলা: সকাল ১০টা থেকে রাত ৯টা</p>
+</footer>
+
+<div id="panel" role="dialog" aria-label="কার্ট">
+  <h3>আপনার কার্ট</h3>
+  <div id="items"></div>
+  <div class="total">মোট: <span id="sum">০</span> টাকা</div>
+  <button class="order" id="order">অর্ডার নিশ্চিত করুন</button>
+</div>
+
+<script>
+var P=[
+{n:'কটন শাড়ি',t:'cloth',e:'🥻',p:1800,o:2200},
+{n:'পুরুষদের পাঞ্জাবি',t:'cloth',e:'👘',p:1450,o:1800},
+{n:'থ্রি-পিস সেট',t:'cloth',e:'👗',p:2400,o:2900},
+{n:'ফর্মাল শার্ট',t:'cloth',e:'👔',p:950,o:1200},
+{n:'স্মার্টফোন ১২৮ জিবি',t:'elec',e:'📱',p:18500,o:20500},
+{n:'ওয়্যারলেস হেডফোন',t:'elec',e:'🎧',p:2200,o:2800},
+{n:'স্মার্টওয়াচ',t:'elec',e:'⌚',p:3200,o:3900},
+{n:'ব্লুটুথ স্পিকার',t:'elec',e:'🔊',p:1600,o:2000},
+{n:'পাওয়ার ব্যাংক ২০০০০ mAh',t:'elec',e:'🔋',p:1750,o:2100},
+{n:'৩২ ইঞ্চি স্মার্ট টিভি',t:'elec',e:'📺',p:19900,o:23000}
+];
+var bn='০১২৩৪৫৬৭৮৯';
+function b(n){return String(n).replace(/\d/g,function(d){return bn[d]});}
+function money(n){return b(n.toLocaleString('en-IN'));}
+var cart={},filter='all';
+function render(){
+  var h='';
+  P.forEach(function(x,i){
+    if(filter!=='all'&&x.t!==filter)return;
+    h+='<div class="card '+(x.t==='cloth'?'c':'')+'"><div class="pic" aria-hidden="true">'+x.e+'</div><div class="info"><span class="tag">'+(x.t==='cloth'?'কাপড়':'ইলেকট্রনিক্স')+'</span><span class="name">'+x.n+'</span><span class="price">৳'+money(x.p)+'<span class="old">'+money(x.o)+'</span></span><button class="add" data-i="'+i+'">কার্টে যোগ করুন</button></div></div>';
+  });
+  document.getElementById('grid').innerHTML=h;
+}
+function cartUI(){
+  var c=0,s=0,h='';
+  Object.keys(cart).forEach(function(i){
+    var q=cart[i],x=P[i];c+=q;s+=q*x.p;
+    h+='<div class="row"><span>'+x.n+' × '+b(q)+'</span><span>৳'+money(q*x.p)+' <button data-r="'+i+'">বাদ দিন</button></span></div>';
+  });
+  document.getElementById('cnt').textContent=b(c);
+  document.getElementById('sum').textContent=money(s);
+  document.getElementById('items').innerHTML=h||'<p>কার্ট খালি। পছন্দের পণ্য যোগ করুন।</p>';
+}
+function setFilter(f){
+  filter=f;
+  document.querySelectorAll('.tab').forEach(function(t){t.setAttribute('aria-pressed',t.dataset.f===f)});
+  render();
+}
+document.addEventListener('click',function(e){
+  var t=e.target;
+  if(t.dataset.i!==undefined){cart[t.dataset.i]=(cart[t.dataset.i]||0)+1;cartUI();t.textContent='যোগ হয়েছে';setTimeout(function(){t.textContent='কার্টে যোগ করুন'},900);}
+  else if(t.dataset.r!==undefined){delete cart[t.dataset.r];cartUI();}
+  else if(t.classList.contains('tab')){setFilter(t.dataset.f);}
+  else if(t.closest('[data-go]')){setFilter(t.closest('[data-go]').dataset.go);}
+  else if(t.closest('#cartbtn')){document.getElementById('panel').classList.toggle('open');}
+  else if(t.id==='order'){
+    if(!Object.keys(cart).length){alert('আগে কার্টে পণ্য যোগ করুন।');return;}
+    alert('ধন্যবাদ! অর্ডার নিশ্চিত করতে আমরা শিগগিরই আপনাকে ফোন করব।');cart={};cartUI();document.getElementById('panel').classList.remove('open');
+  }
+  else if(!t.closest('#panel')){document.getElementById('panel').classList.remove('open');}
+});
+render();cartUI();
+</script>
+</body>
+</html>
